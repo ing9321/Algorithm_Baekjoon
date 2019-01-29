@@ -3,6 +3,8 @@ package dfs;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Main1697 {
@@ -13,7 +15,29 @@ public class Main1697 {
 		StringTokenizer st = new StringTokenizer(br.readLine().trim());
 		int N = Integer.parseInt(st.nextToken().trim());
 		int K = Integer.parseInt(st.nextToken().trim());
+		Queue<Integer> queue = new LinkedList<Integer>();
+		int[] visit = new int[100001];
+		visit[N] = 0;
+		queue.add(N);
 		
+		while(!queue.isEmpty()){
+			int x = queue.poll();
+			if(x == K){
+				System.out.println(visit[x]);
+			} else {
+				if(x-1 >= 0 && visit[x-1] == 0) {
+					visit[x-1] = visit[x]+1;
+					queue.add(x-1);
+				}
+				if(x+1 <= 100000 && visit[x+1] == 0) {
+					visit[x+1] = visit[x]+1;
+					queue.add(x+1);
+				}
+				if(x*2 <= 100000 && visit[x*2] == 0) {
+					visit[x*2] = visit[x]+1;
+					queue.add(x*2);
+				}
+			}
+		}
 	}
-
 }
