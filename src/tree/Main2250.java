@@ -9,29 +9,28 @@ import java.util.StringTokenizer;
 
 public class Main2250 {
 	static int N;
-	static Tree2250 tree;
+	static ArrayList<Node> tree;
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input2250.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		N = Integer.parseInt(br.readLine().trim()); // 노드 갯수
+		tree = new ArrayList<Node>();
 		for(int i=0; i<N; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
-			int p = Integer.parseInt(st.nextToken().trim());
+			int data = Integer.parseInt(st.nextToken().trim());
+			int left = Integer.parseInt(st.nextToken().trim());
+			int right = Integer.parseInt(st.nextToken().trim());
 			
 		}
 	}
-}
-
-class Tree2250 {
-	private class TreeNode {
-		int data;
-		TreeNode left, right;
-		public TreeNode(int data) {
+	
+	static class Node {
+		int parent, data, left, right;
+		public Node(int parent, int data, int left, int right) {
+			this.parent = -1;
 			this.data = data;
+			this.left = left;
+			this.right = right;
 		}
-	}
-	TreeNode root = null;
-	public TreeNode insert(int x, int y, int z) {
-		return null;
 	}
 }
