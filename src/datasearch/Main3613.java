@@ -3,6 +3,7 @@ package datasearch;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 // java vs C++
@@ -11,8 +12,9 @@ public class Main3613 {
 		System.setIn(new FileInputStream("res/input3613.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String str = br.readLine().trim();
-		String java = "^[a-z]+([A-Z]?[a-z]+)*$";
+		String java = "^[a-z]+([A-Za-z])*$";
 		String cpp = "^[a-z]+(_?[a-z]+)*$";
+		Pattern pJava = Pattern.compile("([A-Z])");
 		boolean javap = Pattern.matches(java, str);
 		boolean cppp = Pattern.matches(cpp, str);
 		if(cppp) {
@@ -21,11 +23,15 @@ public class Main3613 {
 				char tar = str.charAt(idx+1);
 				char chg = Character.toUpperCase(tar);
 				str = str.replaceAll("_"+tar, chg+"");
-				System.out.println(str);
 			}
+			System.out.println(str);
 		} else if(javap) {
-			System.out.println("JAVA");
-			
+			Matcher mJava = pJava.matcher(str);
+			while(mJava.find()) {
+				char ch = Character.toLowerCase(mJava.group().charAt(0));
+				str = str.replaceAll(mJava.group(), "_"+ch);
+			}
+			System.out.println(str);
 		} else {
 			System.out.println("Error!");
 		}
