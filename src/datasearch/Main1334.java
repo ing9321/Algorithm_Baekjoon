@@ -10,7 +10,9 @@ public class Main1334 {
 		System.setIn(new FileInputStream("res/input1334.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String str = br.readLine();
+		str = (Integer.parseInt(str) + 1) + "";
 		BigInteger origin = new BigInteger(str);
+
 		char[] input = str.toCharArray();
 		int size = input.length;
 		for(int i=0, ns=size/2; i<ns; i++) {
@@ -23,7 +25,7 @@ public class Main1334 {
 
 		BigInteger palin = new BigInteger(new String(input));
 		if(origin.compareTo(palin) == 1) {
-			if(size%2 == 0) {
+			if(size % 2 == 0) {
 				input[(size/2)-1] += 1;
 			}
 			input[size/2] += 1;
