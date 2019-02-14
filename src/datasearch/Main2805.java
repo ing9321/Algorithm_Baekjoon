@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
+// 나무 자르기
 public class Main2805 {
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input2805.txt"));

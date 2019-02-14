@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
+// 별 찍기 11
 public class Main2448 {
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input2448.txt"));

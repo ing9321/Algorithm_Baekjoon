@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.math.BigInteger;
 
+// 다음 팰린드롬 수
 public class Main1334 {
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input1334.txt"));

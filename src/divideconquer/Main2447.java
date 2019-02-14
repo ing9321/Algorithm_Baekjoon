@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
+// 별 찍기 10
 public class Main2447 {
 	static BufferedWriter bw;
 	public static void main(String[] args) throws Exception {

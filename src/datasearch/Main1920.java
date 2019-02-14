@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
+// 수 찾기
 public class Main1920 {
 	static int[] arr;
 	static int key;
