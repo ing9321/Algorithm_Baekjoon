@@ -28,42 +28,34 @@ public class Main2104 {
 			}
 		}
 		
-		BigInteger MAX = BigInteger.ZERO;
+		long MAX = 0;
 		MAX = divcon(0, N-1);
 		System.out.println(MAX);
 	}
 
-	private static BigInteger divcon(int start, int end) throws IOException {
+	private static long divcon(int start, int end) throws IOException {
 		if(start == end) {
-			return BigInteger.valueOf(arrN[start] * arrN[end]);
+			return arrN[start] * arrN[end];
 		}
 		
-		int left = (start + end) / 2;
-		int right = left+1;
-		bw.append(start + " to " + left + ", " + right + " to " + end + "\n");
+		int mid = (start + end) / 2;
+		bw.append(start + " to " + mid + ", " + (mid+1) + " to " + end + "\n");
 		
-		BigInteger ret = BigInteger.ZERO;
-		BigInteger retL = divcon(start, left);
+		long ret = 0;
+		long retL = divcon(start, mid);
 		bw.append("retL : " + retL);
-		BigInteger retR = divcon(right, end);
+		long retR = divcon(mid+1, end);
 		bw.append("retR : " + retR);
+		bw.append("\n" + start + " to " + mid + ", " + (mid+1) + " to " + end + "\n");
 		
-		bw.append("\n" + start + " to " + end + "\n");
-		if(retL.compareTo(retR) == 1) {
-			ret = retL;
-		} else {
-			ret = retR;
-		}
+		ret = Math.max(retL, retR);
 		bw.append(" ret : " + ret + " \n");
 		
-		
-		bw.append("\n" + start + " to " + left + ", " + right + " to " + end + "\n");
-		int MIN = Math.min(arrN[left], arrN[right]);
-		BigInteger retLR = BigInteger.valueOf((arrN[left] + arrN[right]) * MIN);
+		int MIN = Math.min(arrN[mid], arrN[mid+1]);
+		long retLR = (arrN[mid] + arrN[mid+1]) * MIN;
 		bw.append("min : " + MIN + " retLR : " + retLR);
-		if(ret.compareTo(retLR) == -1) {
-			ret = retLR;
-		}
+		
+		ret = Math.max(ret, retLR);
 		bw.append("\n retF : " + ret + " \n");
 		bw.flush();
 		

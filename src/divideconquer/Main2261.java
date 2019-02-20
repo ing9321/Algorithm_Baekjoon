@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+// 가장 가까운 두 점
 public class Main2261 {
 	static TreeSet<Point> points;
 	static int MIN;
