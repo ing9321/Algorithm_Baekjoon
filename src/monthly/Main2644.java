@@ -7,33 +7,53 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
+// 촌수계산
 public class Main2644 {
+	static class Node {
+		int vertex;
+		Node link;
+		public Node(int vertex, Node link) {
+			super();
+			this.vertex = vertex;
+			this.link = link;
+		}
+		@Override
+		public String toString() {
+			StringBuilder builder = new StringBuilder();
+			builder.append("Family [vertex=");
+			builder.append(vertex);
+			builder.append(", link=");
+			builder.append(link);
+			builder.append("]");
+			return builder.toString();
+		}
+	}
 	static int N, M, p1, p2, cnt;
-	static int[][] family;
+	static Node[] matrix;
 	static boolean[] visit;
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input2644.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		N = Integer.parseInt(br.readLine().trim()); // 전체 사람 수
+		matrix = new Node[N+1];
+		visit = new boolean[N+1];
 		// 촌수 계산 해야하는 두 사람
 		String[] strarr = br.readLine().split(" ");
-		p1 = Integer.parseInt(strarr[0]);
-		p2 = Integer.parseInt(strarr[1]);
+		p1 = Integer.parseInt(strarr[0]); // 시작점
+		p2 = Integer.parseInt(strarr[1]); // 도착점
 		// 관계의 개수
 		M = Integer.parseInt(br.readLine().trim());
-		cnt = -1;
-		family = new int[N+1][N+1];
-		visit = new boolean[N+1];
+		cnt = 0;
 		for(int i=0; i<M; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			int p = Integer.parseInt(st.nextToken().trim());
 			int c = Integer.parseInt(st.nextToken().trim());
-			family[p][c] = p;
-			family[c][p] = c;
+			matrix[p] = new Node(c, matrix[p]);
+			matrix[c] = new Node(p, matrix[c]);			
 		}
 		
 		for (int i = 1; i <= N; i++) {
-			System.out.println(Arrays.toString(family[i]));
+			System.out.println(i + " : " + matrix[i]);
 		}
 
 		bfs();
@@ -42,24 +62,29 @@ public class Main2644 {
 	private static void bfs() {
 		LinkedList<Integer> queue = new LinkedList<Integer>();
 		queue.offer(p1);
-		visit[p1] = true;
-		
+		int sub = 0;
 		while(!queue.isEmpty()) {
 			System.out.println(queue);
-			cnt++;
-			int p = queue.poll();
-			System.out.println("parent : " + p);
-			if(p == p2) {
+			int current = queue.poll();
+			if(current == p2) {
 				break;
 			}
-			for(int i=1; i<=N; i++) {
-				if(family[p][i] > 0 && !visit[i]) {
-					System.out.println("next : " + family[p][i]);
-					visit[i] = true;
-					queue.offer(family[p][i]);
+			if(!visit[current]) {
+				System.out.println("visit : " + current);
+				visit[current] = true; // 방문처리
+				Node temp = matrix[current];
+				cnt++;
+				while(temp != null) {
+					sub++;
+					if(!visit[temp.vertex]) {
+						queue.offer(temp.vertex);
+					}
+					temp = temp.link;
 				}
 			}
 		}
+		System.out.println(sub);
+		System.out.println(Arrays.toString(visit));
 	}
 
 }
