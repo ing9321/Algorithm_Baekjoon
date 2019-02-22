@@ -1,4 +1,4 @@
-package monthly;
+package monthly.february;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
