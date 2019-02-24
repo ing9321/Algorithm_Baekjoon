@@ -29,7 +29,6 @@ public class Main1535 {
 		System.out.println(Arrays.toString(HP));
 		System.out.println(Arrays.toString(MP));
 		
-		int maxIdx = 0;
 		int maxMP = 0;
 		for(int i=1, size = 1<<N; i<size; i++) {
 			int hp = 0;
