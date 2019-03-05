@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.HashSet;
 
+// 로마 숫자 만들기
 public class Main16922 {
 	static int N, C, I;
 	static int[] roman = {1, 5, 10, 50};

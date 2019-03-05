@@ -3,9 +3,9 @@ package monthly.march;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.StringTokenizer;
 
+// 배열 B의 값
 public class Main16971 {
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input16971.txt"));
@@ -13,7 +13,7 @@ public class Main16971 {
 		StringTokenizer st = new StringTokenizer(br.readLine().trim());
 		int N = Integer.parseInt(st.nextToken());
 		int M = Integer.parseInt(st.nextToken());
-		int[][] mapA = new int[N][M];
+		int[][] map = new int[N][M];
 		int[] rowSum = new int[N];
 		int[] colSum = new int[M];
 		for (int i = 0; i < N; i++) {
@@ -22,72 +22,60 @@ public class Main16971 {
 				int tmp = Integer.parseInt(st.nextToken());
 				rowSum[i] += tmp;
 				colSum[j] += tmp;
-				mapA[i][j] = tmp;
+				map[i][j] = tmp;
 			}
 		}
 		
-		int row1 = rowSum[0];
-		int r1 = 0;
-		int row2 = rowSum[N-1];
-		int r2 = N-1;
-		if(row1 < row2) {
-			row1 = rowSum[N-1];
-			r1 = N-1;
-			row2 = rowSum[0];
-			r2 = 0;
+		//////// row 이동
+		int fixedRow1 = 0; // 무조건 둘 중 하나 고정
+		int fixedRow2 = N-1; // 안에꺼중에 작은 애
+		if(rowSum[0] > rowSum[N-1]) {
+			fixedRow1 = N-1;
+			fixedRow2 = 0;
 		}
+		for (int i = 1; i < N-1; i++) {
+			if(rowSum[fixedRow2] > rowSum[i]) {
+				fixedRow2 = i;
+			}
+		}
+		System.out.println(fixedRow1 + " " + fixedRow2);
+		int maxRow = map[fixedRow1][0] + map[fixedRow1][M-1] + map[fixedRow2][0] + map[fixedRow2][M-1];
 		for (int i = 0; i < N; i++) {
-			if(rowSum[i] < row1) {
-				row1 = rowSum[i];
-				r1 = i;
+			if(i != fixedRow1 && i != fixedRow2) {
+				maxRow += rowSum[i] << 1;				
 			}
 		}
-		
-		int col1 = colSum[0];
-		int c1 = 0;
-		int col2 = colSum[M-1];
-		int c2 = M-1;
-		if(col1 < col2) {
-			col1 = colSum[M-1];
-			c1 = M-1;
-			col2 = colSum[0];
-			c2 = 0;
+		for (int i = 1; i < M-1; i++) {
+			maxRow += colSum[i] << 1;
 		}
+		System.out.println(maxRow);
+		
+		
+		/////// col 이동
+		int fixedCol1 = 0; // 무조건 둘 중 하나 고정
+		int fixedCol2 = M-1; // 안에꺼중에 작은 애
+		if(colSum[0] > colSum[M-1]) {
+			fixedCol1 = M-1;
+			fixedCol2 = 0;
+		}
+		for (int i = 1; i < M-1; i++) {
+			if(colSum[fixedCol2] > colSum[i]) {
+				fixedCol2 = i;
+			}
+		}
+		System.out.println(fixedCol1 + " " + fixedCol2);
+		int maxCol = map[0][fixedCol1] + map[N-1][fixedCol1] + map[0][fixedCol2] + map[N-1][fixedCol2];
 		for (int i = 0; i < M; i++) {
-			if(colSum[i] < col1) {
-				col1 = colSum[i];
-				c1 = i;
+			if(i != fixedCol1 && i != fixedCol2) {
+				maxCol += colSum[i] << 1;				
 			}
 		}
-		
-		int rowB = 0;
-		int colB = 0;
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < M; j++) {
-				if(i != r1 && i != r2) {
-					rowB += mapA[i][j];
-				}
-				if(j!=0 && j!=M-1) {
-					rowB += mapA[i][j];
-				}
-				if(j!=0 && j!=M-1 && i != r1 && i != r2) {
-					rowB += mapA[i][j];
-				}
-				rowB += mapA[i][j];
-				
-				if(j!=c1 && j!=c2) {
-					colB += mapA[i][j];
-				}
-				if(i!=0 && i!=N-1) {
-					colB += mapA[i][j];
-				}
-				if(j!=c1 && j!=c2 && i!=0 && i!=N-1) {
-					colB += mapA[i][j];
-				}
-				colB += mapA[i][j];
-			}
+		for (int i = 1; i < N-1; i++) {
+			maxCol += rowSum[i] << 1;
 		}
+		System.out.println(maxCol);
+
 		
-		System.out.println(Math.max(rowB, colB));
+		System.out.println(Math.max(maxRow, maxCol));
 	}
 }
