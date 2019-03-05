@@ -23,7 +23,7 @@ public class Main14501 {
 			dp[i] = price;
 		}
 		
-		for (int i = 2; i <= N; i++) {
+		for (int i = 1; i <= N; i++) {
 			// i일 + 일하는 날이 N일보다 작을 때
 			if(i + meetings[i].day -1 <= N) {
 				for (int j = 1; j < i; j++) {
