@@ -1,0 +1,11 @@
+5 4
+2 2
+1 1 E
+5 4 W
+1 F 7
+2 F 7
+
+
+
+Robot X crashes into the wall: X번 로봇이 벽에 충돌하는 경우이다. 즉, 주어진 땅의 밖으로 벗어나는 경우가 된다.
+Robot X crashes into robot Y: X번 로봇이 움직이다가 Y번 로봇에 충돌하는 경우이다.
