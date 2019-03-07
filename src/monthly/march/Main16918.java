@@ -42,9 +42,8 @@ public class Main16918 {
 				for (int j = 0; j < 4; j++) {
 					int nx = position[0] + pos[j][0];
 					int ny = position[1] + pos[j][1];
-					if(nx>=0 && ny>=0 && nx<R && ny<C) {
-						map[nx][ny] = 0;
-					}
+					if(nx<0 || ny<0 || nx>=R || ny>=C) continue;
+					map[nx][ny] = 0;
 				}
 			}
 			N--;
