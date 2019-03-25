@@ -6,6 +6,11 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/*
+ * 2667 단지번호붙이기
+ * https://www.acmicpc.net/problem/2667
+ * dfs (DFS or BFS)
+ */
 public class Main2667 {
 	static int N;
 	static int[][] map;

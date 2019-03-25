@@ -8,7 +8,12 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.math.BigInteger;
 
-// 부분배열 고르기
+/*
+ * 미해결
+ * 2104 부분배열 고르기
+ * https://www.acmicpc.net/problem/2104
+ * 
+ */
 public class Main2104 {
 	static int[] arrN, sumN;
 	static int MAX;

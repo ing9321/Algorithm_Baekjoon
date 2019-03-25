@@ -5,7 +5,11 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-// 계란으로 계란치기 : 완전탐색
+/*
+ * 16987 계란으로 계란 치기
+ * https://www.acmicpc.net/problem/16987
+ * 완전 탐색
+ */
 public class Main16987 {
 	private static class Egg {
 		int hard;

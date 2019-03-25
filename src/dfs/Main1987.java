@@ -6,6 +6,11 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
+/*
+ * 1987 알파벳
+ * https://www.acmicpc.net/problem/1987
+ * dfs, backtracking
+ */
 public class Main1987 {
 	static int R, C, A;
 	static char[][] map;

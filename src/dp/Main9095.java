@@ -4,7 +4,12 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
-// 1, 2, 3 더하기
+/*
+ * 미해결
+ * 9095 1, 2, 3 더하기
+ * https://www.acmicpc.net/problem/9095
+ * dp
+ */
 public class Main9095 {
 
 	public static void main(String[] args) throws Exception {

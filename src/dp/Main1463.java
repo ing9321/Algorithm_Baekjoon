@@ -2,7 +2,11 @@ package dp;
 
 import java.util.Scanner;
 
-// 1로 만들기
+/*
+ * 1463 1로 만들기
+ * https://www.acmicpc.net/problem/1463
+ * dp
+ */
 public class Main1463 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

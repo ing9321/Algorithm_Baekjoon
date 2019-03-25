@@ -5,6 +5,11 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+/*
+ * 1929 소수 구하기
+ * https://www.acmicpc.net/problem/1929
+ * 에라토스테네스의 체
+ */
 public class Main1929 {
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input1929.txt"));

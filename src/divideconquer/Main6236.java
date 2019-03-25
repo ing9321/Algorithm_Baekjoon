@@ -4,7 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
-// 용돈관리
+/*
+ * 6236 용돈관리
+ * https://www.acmicpc.net/problem/6236
+ * 분할 정복 (분할 정복, 이분 탐색)
+ */
 public class Main6236 {
 	static int N;
 	static int[] days;

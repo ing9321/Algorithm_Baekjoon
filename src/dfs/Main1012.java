@@ -4,6 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
+/*
+ * 1012 유기농 배추
+ * https://www.acmicpc.net/problem/1012
+ * dfs (DFS or BFS)
+ */
 public class Main1012 {
 	static int T, M, N, K;
 	static int[][] map;

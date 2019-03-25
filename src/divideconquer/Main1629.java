@@ -4,7 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
-// 곱셈
+/*
+ * 1629 곱셈
+ * https://www.acmicpc.net/problem/1629
+ * 분할정복
+ */
 public class Main1629 {
 	static int C;
 	public static void main(String[] args) throws Exception {

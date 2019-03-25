@@ -5,6 +5,12 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+/*
+ * 미해결
+ * 2339 석판자르기
+ * https://www.acmicpc.net/problem/2339
+ * (수학, 분할정복)
+ */
 public class Main2339 {
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input2339.txt"));

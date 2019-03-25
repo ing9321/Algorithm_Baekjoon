@@ -5,6 +5,11 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
+/*
+ * 2468 안전 영역
+ * https://www.acmicpc.net/problem/2468
+ * dfs (DFS or BFS)
+ */
 public class Main2468 {
 	static int N, maxH, maxS;
 	static int[][] map, flood;

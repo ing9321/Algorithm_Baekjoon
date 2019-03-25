@@ -6,6 +6,12 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
+/*
+ * 미해결
+ * 2912 백설공주와 난쟁이
+ * https://www.acmicpc.net/problem/2912
+ * (세그먼트 트리, 분할 정복, 자료구조, 이분 탐색)
+ */
 public class Main2912 {
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input2912.txt"));

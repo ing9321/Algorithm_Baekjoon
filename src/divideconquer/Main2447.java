@@ -8,6 +8,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 // 별 찍기 10
+/*
+ * 2447 별 찍기 - 10
+ * https://www.acmicpc.net/problem/2447
+ * 분할정복
+ */
 public class Main2447 {
 	static BufferedWriter bw;
 	public static void main(String[] args) throws Exception {

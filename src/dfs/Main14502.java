@@ -5,6 +5,11 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+/*
+ * 14502 연구소
+ * https://www.acmicpc.net/problem/14502
+ * dfs (DFS or BFS, Brute Force)
+ */
 public class Main14502 {
 	static int N, M, S;
 	static int[][] map, vmap;

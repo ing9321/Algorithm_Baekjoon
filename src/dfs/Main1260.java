@@ -7,6 +7,10 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/*
+ * 1260 DFS와 BFS
+ * https://www.acmicpc.net/problem/1260
+ */
 public class Main1260 {
 	static int N, M, V;
 	static int[][] nodes;

@@ -6,7 +6,12 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
-// 두 박스
+/*
+ * 부분 해결
+ * 15973 두 박스
+ * https://www.acmicpc.net/problem/15973
+ * 
+ */
 public class Main15973 {
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input15973.txt"));

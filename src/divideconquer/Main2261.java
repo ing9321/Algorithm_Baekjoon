@@ -6,7 +6,12 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
-// 가장 가까운 두 점
+/*
+ * 미해결
+ * 2261 가장 가까운 두 점
+ * https://www.acmicpc.net/problem/2261
+ * (분할 정복, 라인 스위핑)
+ */
 public class Main2261 {
 	static TreeSet<Point> points;
 	static int MIN;

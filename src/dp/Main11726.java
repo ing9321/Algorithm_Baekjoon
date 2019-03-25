@@ -3,7 +3,11 @@ package dp;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-// 2xN 타일링
+/*
+ * 11726 2xN 타일링
+ * https://www.acmicpc.net/problem/11726
+ * dp
+ */
 public class Main11726 {
 	public static void main(String[] args) throws Exception {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
+/*
+ * 2583 영역 구하기
+ * https://www.acmicpc.net/problem/2583
+ * dfs (DFS or BFS)
+ */
 public class Main2583 {
 	static int M, N;
 	static int[][] map;

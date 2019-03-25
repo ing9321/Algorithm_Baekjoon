@@ -5,7 +5,11 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-// 화살표 그리기
+/*
+ * 부분 성공
+ * 15970 화살표 그리기
+ * https://www.acmicpc.net/problem/15970
+ */
 public class Main15970 {
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input15970.txt"));

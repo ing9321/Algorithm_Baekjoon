@@ -7,6 +7,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 // 별 찍기 11
+/*
+ * 2448 별 찍기 - 11
+ * https://www.acmicpc.net/problem/2448
+ * 분할정복.. 으로 풀기
+ */
 public class Main2448 {
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input2448.txt"));

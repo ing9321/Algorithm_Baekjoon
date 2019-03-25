@@ -6,7 +6,11 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-// 돌 던지기
+/*
+ * 실패
+ * 3025 돌 던지기
+ * https://www.acmicpc.net/problem/3025
+ */
 public class Main3025 {
 	static int R, C;
 	static char[][] map;

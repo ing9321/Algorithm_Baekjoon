@@ -2,6 +2,10 @@ package arithmetic;
 
 import java.util.Scanner;
 
+/*
+ * 10998 AxB
+ * https://www.acmicpc.net/problem/10998
+ */
 public class Main10998 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);

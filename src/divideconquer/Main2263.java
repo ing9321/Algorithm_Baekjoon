@@ -8,7 +8,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
 
-// 트리 순회
+/*
+ * 2263 트리의 순회
+ * https://www.acmicpc.net/problem/2263
+ * 분할정복
+ */
 public class Main2263 {
 	static int[] inorder, postorder;
 	static BufferedWriter bw;
