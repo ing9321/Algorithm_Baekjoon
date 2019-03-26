@@ -24,14 +24,14 @@ public class Main3425 {
 				list.add(str);
 				str = br.readLine().trim();
 			}
-			System.out.println(list);
+			list.add("END");
+//			System.out.println(list);
 			
 			int N = Integer.parseInt(br.readLine().trim());
 			for (int i = 0; i < N; i++) {
-				boolean flag = false;
 				Stack<Integer> stack = new Stack<Integer>();
 				stack.push(Integer.parseInt(br.readLine().trim()));
-				System.out.println(stack.peek());
+//				System.out.println(stack.peek());
 				calc:
 				for (int j = 0; j < list.size(); j++) {
 					String order = list.get(j);
@@ -39,17 +39,29 @@ public class Main3425 {
 						int n1 = Integer.parseInt(order.split(" ")[1]);
 						stack.push(n1);
 					} else if(order.contains("POP")) {
+						if(stack.isEmpty()) {
+							sb.append("ERROR\n");
+							break calc;
+						}
 						stack.pop();
 					} else if(order.contains("INV")) {
+						if(stack.isEmpty()) {
+							sb.append("ERROR\n");
+							break calc;
+						}
 						int n1 = stack.pop();
 						n1 *= -1;
 						stack.push(n1);
 					} else if(order.contains("DUP")) {
+						if(stack.isEmpty()) {
+							sb.append("ERROR\n");
+							break calc;
+						}
 						int n1 = stack.peek();
 						stack.push(n1);
 					} else if(order.contains("SWP")) {
 						if(stack.size() < 2) {
-							flag = true;
+							sb.append("ERROR\n");
 							break calc;
 						}
 						int n1 = stack.pop();
@@ -58,7 +70,7 @@ public class Main3425 {
 						stack.push(n2);
 					} else if(order.contains("ADD")) {
 						if(stack.size() < 2) {
-							flag = true;
+							sb.append("ERROR\n");
 							break calc;
 						}
 						int n1 = stack.pop();
@@ -67,7 +79,7 @@ public class Main3425 {
 						stack.push(temp);
 					} else if(order.contains("SUB")) {
 						if(stack.size() < 2) {
-							flag = true;
+							sb.append("ERROR\n");
 							break calc;
 						}
 						int n1 = stack.pop();
@@ -76,7 +88,7 @@ public class Main3425 {
 						stack.push(temp);
 					} else if(order.contains("MUL")) {
 						if(stack.size() < 2) {
-							flag = true;
+							sb.append("ERROR\n");
 							break calc;
 						}
 						int n1 = stack.pop();
@@ -84,9 +96,13 @@ public class Main3425 {
 						int temp = n2 * n1;
 						stack.push(temp);
 					} else if(order.contains("DIV")) {
+						if(stack.size() < 2) {
+							sb.append("ERROR\n");
+							break calc;
+						}
 						int n1 = stack.pop();
-						if(stack.size() < 1 || n1 == 0) {
-							flag = true;
+						if(n1 == 0) {
+							sb.append("ERROR\n");
 							break calc;
 						}
 						int n2 = stack.pop();
@@ -105,9 +121,13 @@ public class Main3425 {
 						}
 						stack.push(temp);
 					} else if(order.contains("MOD")) {
+						if(stack.size() < 2) {
+							sb.append("ERROR\n");
+							break calc;
+						}
 						int n1 = stack.pop();
-						if(stack.size() < 1 || n1 == 0) {
-							flag = true;
+						if(n1 == 0) {
+							sb.append("ERROR\n");
 							break calc;
 						}
 						int n2 = stack.pop();
@@ -123,26 +143,25 @@ public class Main3425 {
 							temp *= -1;
 						}
 						stack.push(temp);
+					} else if(order.contains("END")) {
+						if(stack.size() == 1) {
+							sb.append(stack.peek()).append("\n");
+							break calc;
+						} else {
+							sb.append("ERROR\n");
+							break calc;
+						}
 					}
 					if(stack.peek() > 1000000000) {
-						flag = true;
+						sb.append("ERROR\n");
 						break calc;
 					}
-				}
-				
-				if(!flag && stack.size() == 1) {
-					sb.append(stack.peek());
-					sb.append("\n");
-				} else {
-					sb.append("ERROR\n");
 				}
 			}
 			sb.append("\n");
 			br.readLine();
 			str = br.readLine().trim();
 		}
-		
-		System.out.println(sb);
+		System.out.print(sb);
 	}
-
 }
