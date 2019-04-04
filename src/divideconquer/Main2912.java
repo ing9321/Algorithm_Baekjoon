@@ -5,9 +5,10 @@ import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
 /*
- * 미해결
+ * 재채점 결과 시간초과
  * 2912 백설공주와 난쟁이
  * https://www.acmicpc.net/problem/2912
  * (세그먼트 트리, 분할 정복, 자료구조, 이분 탐색)
@@ -17,34 +18,35 @@ public class Main2912 {
 		System.setIn(new FileInputStream("res/input2912.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		String[] strarr = br.readLine().split(" ");
-		int N = Integer.parseInt(strarr[0]);
-		int C = Integer.parseInt(strarr[1]);
+		StringTokenizer st = new StringTokenizer(br.readLine().trim());
+		int N = Integer.parseInt(st.nextToken());
+		int C = Integer.parseInt(st.nextToken());
 		int[] dwarf = new int[N+1];
-		strarr = br.readLine().split(" ");
-		for(int d=0; d<N; d++) {
-			dwarf[d+1] = Integer.parseInt(strarr[d]);
+		st = new StringTokenizer(br.readLine().trim());
+		for(int d = 1; d <= N; d++) {
+			dwarf[d] = Integer.parseInt(st.nextToken());
 		}
 		
 		int M = Integer.parseInt(br.readLine().trim());
-		for(int m=0; m<M; m++) {
+		for(int m = 0; m < M; m++) {
 			boolean isPretty = false;
 			int[] hat = new int[C+1];
-			strarr = br.readLine().split(" ");
-			int start = Integer.parseInt(strarr[0]);
-			int end = Integer.parseInt(strarr[1]);
-			for(int i=start; i<=end; i++) {
+			st = new StringTokenizer(br.readLine().trim());
+			int start = Integer.parseInt(st.nextToken());
+			int end = Integer.parseInt(st.nextToken());
+			
+			
+			for(int i = start; i <= end; i++) {
 				hat[dwarf[i]]++;
-			}
-			for(int i=1; i<=C; i++) {
-				if(hat[i] > (end-start+1)/2) {
-					bw.append("yes " + i + "\n");
+				if(hat[dwarf[i]] > (end-start+1)>>1) {
+					bw.write("yes ");
+					bw.write(dwarf[i] + "\n");
 					isPretty = true;
 					break;
 				}
 			}
 			if(!isPretty) {
-				bw.append("no\n");
+				bw.write("no\n");
 			}
 		}
 		bw.close();
