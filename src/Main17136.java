@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.StringTokenizer;
 
 /*
+ * 미해결
  * 17136 색종이 붙이기
  * https://www.acmicpc.net/problem/17136
  * 
