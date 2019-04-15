@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
 /*
- * 미해결
+ * 안푼문제
  * 3954 brainfuck 인터프리터
  * https://www.acmicpc.net/problem/3954
  * Simulation, Cycle

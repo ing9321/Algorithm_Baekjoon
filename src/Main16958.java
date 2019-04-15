@@ -3,6 +3,11 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
+/*
+ * 안푼문제
+ * 16958 텔레포트
+ * https://www.acmicpc.net/problem/16958
+ */
 public class Main16958 {
 	static int N, T;
 	static int[][] map;

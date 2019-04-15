@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 /*
- * 미해결
+ * 안푼문제
  * 2065 나룻배
  * https://www.acmicpc.net/problem/2065
  * simulation
