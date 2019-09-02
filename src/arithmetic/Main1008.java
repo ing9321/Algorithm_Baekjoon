@@ -12,6 +12,6 @@ public class Main1008 {
 		double A = sc.nextInt();
 		double B = sc.nextInt();
 		double result = A/B;
-		System.out.printf("%f", result);
+		System.out.printf("%.9f", result);
 	}
 }
