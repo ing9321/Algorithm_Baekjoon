@@ -11,6 +11,7 @@ import java.util.StringTokenizer;
  * https://www.acmicpc.net/problem/16957
  * priority queue
  */
+
 class Chess implements Comparable<Chess>{
 	int x;
 	int y;
