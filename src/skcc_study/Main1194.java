@@ -9,6 +9,8 @@ import java.util.StringTokenizer;
 
 /*
  * 1194 달이 차오른다 가자
+ * https://www.acmicpc.net/problem/1194
+ * 미해결
  * 
  * 빈 곳 : 언제나 이동할 수 있다. ('.‘로 표시됨)
 벽 : 절대 이동할 수 없다. (‘#’)
