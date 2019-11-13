@@ -9,42 +9,34 @@ import java.util.StringTokenizer;
 /*
  * 2493 탑
  * https://www.acmicpc.net/problem/2493
+ * 스택
  */
 
 public class Main2493 {
-	public static int N;
-	public static int[] arr, res;
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input2493.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		N = Integer.parseInt(br.readLine().trim());
-		arr = new int[N];
-		res = new int[N];
-		res[0] = 0;
-		Stack<Integer> stack = new Stack<Integer>();
+		int N = Integer.parseInt(br.readLine().trim());
+		Stack<int[]> stack = new Stack<int[]>();
 		
 		StringTokenizer st = new StringTokenizer(br.readLine().trim());
-		for (int i = 0; i < N; i++) {
-			arr[i] = Integer.parseInt(st.nextToken().trim());
+		for (int i = 1; i <= N; i++) {
+			int tmp = Integer.parseInt(st.nextToken().trim());
+			
+			while(!stack.isEmpty()) {
+				if(tmp <= stack.peek()[1]) {
+					System.out.print(stack.peek()[0] + " ");
+					break;
+				}
+				stack.pop();
+			}
+			
+			if(stack.isEmpty()) {
+				System.out.print(0 + " ");
+			}
+			
+			stack.push(new int[] {i, tmp});
 		}
 
-		int idx = 0;
-		for (int i = 0; i < N-1; i++) {
-			stack.push(arr[i]);
-			System.out.println(stack);
-			if(stack.peek() < arr[i+1]) {
-				System.out.println(idx);
-				for (int j = idx; j < i; j++) {
-					res[j] = idx;
-				}
-				idx = i;
-				stack.clear();
-				stack.push(arr[i]);
-			}
-		}
-		
-		for (int i = 0; i < N; i++) {
-			System.out.print(res[i] + " ");
-		}
 	}
 }
