@@ -1,39 +1,59 @@
 package datasearch;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.PriorityQueue;
+import java.util.StringTokenizer;
 
-// 문제집
+/*
+ * 1766 문제집
+ * https://www.acmicpc.net/problem/1766
+ * 힙, 위상정렬
+ * 
+ */
+
 public class Main1766 {
 	public static void main(String[] args) throws Exception {
 		System.setIn(new FileInputStream("res/input1766.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		String[] strarr = br.readLine().split(" ");
-		int N = Integer.parseInt(strarr[0]);
-		int M = Integer.parseInt(strarr[1]);
-		List<String> list = new LinkedList<String>();
-		for(int n=0; n<=N; n++) {
-			list.add(n + "");
+		StringTokenizer st = new StringTokenizer(br.readLine().trim());
+		int N = Integer.parseInt(st.nextToken().trim()); // 문제의 수
+		int M = Integer.parseInt(st.nextToken().trim()); // 먼저 푸는 것이 좋은 문제에 대한 정보 개수
+		int[] indegree = new int[N+1];
+		
+		ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
+		for(int n = 0; n <= N; n++) {
+			list.add(new ArrayList<Integer>());
 		}
 		
-		for(int m=0; m<M; m++) {
-			String[] arr = br.readLine().split(" ");
-			String A = arr[0];
-			String B = arr[1];
-			int idx = list.indexOf(A);
-			list.add(idx+1, B);
-			list.remove(B);
+		// A번 문제는 B번 문제보다 먼저 푸는 것이 좋다.
+		for(int m = 0; m < M; m++) {
+			st = new StringTokenizer(br.readLine().trim());
+			int a = Integer.parseInt(st.nextToken().trim());
+			int b = Integer.parseInt(st.nextToken().trim());
+			list.get(a).add(b);
+			indegree[b]++;
 		}
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		for(int n=1; n<=N; n++) {
-			bw.write(list.get(n) + " ");
+		
+		PriorityQueue<Integer> pq = new PriorityQueue<>();
+		for (int i = 1; i <= N; i++) {
+			if(indegree[i] == 0) pq.add(i);
 		}
-		bw.close();
+		
+		while(!pq.isEmpty()) {
+			int cur = pq.poll();
+			System.out.print(cur + " ");
+			
+			for (int i = 0, size = list.get(cur).size(); i < size; i++) {
+				int next = list.get(cur).get(i);
+				indegree[next]--;
+				if(indegree[next] == 0) {
+					pq.add(next);
+				}
+			}
+		}
 	}
 
 }

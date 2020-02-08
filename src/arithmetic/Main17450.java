@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 
 /*
  * 17450 과자 사기
- * 
+ * https://www.acmicpc.net/problem/17450
  */
 
 public class Main17450 {
